@@ -46,17 +46,27 @@ void check_flags(int argc, char **argv) {
         default:
             printf("Too many flags");
     }
-
-    void run_test(size_t n, int *arr, bool expected, char *name) {
-        bool result = inverse_permutation(n, arr);
-        if (result == expected) {
-            printf("%sOK   %s", GREEN, RESET);
-        } else {
-            printf("%sERROR%s", RED, RESET);
-            tests_failed++;
-        }
-        printf("    %s\n", name);
 }
+
+void run_test(size_t n, int *arr, bool expected, char *name) {
+    bool result = inverse_permutation(n, arr);
+    if (result == expected) {
+        printf("%sOK   %s", GREEN, RESET);
+    } else {
+        printf("%sERROR%s", RED, RESET);
+        tests_failed++;
+    }
+    printf("    %s\n", name);
+    if (debug) {
+        printf("    n: %zu, arr: [", n);
+        for (int i = 0; i < n; i++) {
+            printf("%d", arr[i]);
+            if (i != n - 1) {
+                printf(", ");
+            }
+        }
+        printf("]\n");
+    }
 
     int main(int argc, char **argv) {
         check_flags(argc, argv);
@@ -78,7 +88,8 @@ void check_flags(int argc, char **argv) {
         run_test(4, negative_numbers, false, "Negative numbers");
         run_test(4, too_big_numbers, false, "Too big numbers");
         run_test(4, too_big_numbers2, false, "Too big numbers 2");
-        run_test(5, consecutive_numbers_array, true, "Consecutive numbers 0 to 4");
+        run_test(5, consecutive_numbers_array, true,
+                 "Consecutive numbers 0 to 4");
         run_test(6, correct_permutation, true, "Correct permutation");
         run_test(4, duplicate_numbers, false, "Duplicate numbers");
         run_test(4, duplicate_numbers2, false, "Duplicate numbers 2");
@@ -91,4 +102,4 @@ void check_flags(int argc, char **argv) {
         }
 
         return 0;
-}
+    }
