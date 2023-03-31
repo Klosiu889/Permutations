@@ -16,11 +16,5 @@ jobs:
       - uses: actions/checkout@v3
       - name: compile
         run: ./compile.sh
-
-  test:
-
-    runs-on: ubuntu-latest
-
-    steps:
       - name: test
         run: ./test -color=false >> $GITHUB_OUTPUT
