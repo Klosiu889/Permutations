@@ -11,17 +11,18 @@
 bool inverse_permutation(size_t n, int *p);
 
 int tests_failed = 0;
-char* RED = "\033[0;31m";
-char* GREEN = "\033[0;32m";
-char* RESET = "\033[0m";
+char *RED = "\033[0;31m";
+char *GREEN = "\033[0;32m";
+char *RESET = "\033[0m";
 
-void run_test(size_t n, int* arr, int expected, char* name) {
+void run_test(size_t n, int *arr, bool expected, char *name) {
     printf("Test %s:\n", name);
     bool result = inverse_permutation(n, arr);
     if (result == expected) {
         printf("%sOK%s\n", GREEN, RESET);
     } else {
-        printf("%sERROR%s: expected %d, got %d\n", RED, RESET, expected, result);
+        printf("%sERROR%s: expected %s, got %s\n", RED, RESET,
+               expected ? "True" : "False", result ? "True" : "False");
         tests_failed++;
     }
 }
@@ -48,7 +49,7 @@ int main(int argc, char **argv) {
     run_test(5, arr1, true, "Consecutive numbers 0 to 4");
     run_test(4, arr2, false, "Negative numbers");
     run_test(4, arr3, false, "Duplicate numbers");
-    run_test(4, arr4, true, "Duplicate numbers 2");
+    run_test(4, arr4, false, "Duplicate numbers 2");
     run_test(6, arr5, true, "Non-consecutive numbers 0 to 5");
 
     if (tests_failed > 0) {
