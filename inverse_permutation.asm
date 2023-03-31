@@ -54,7 +54,7 @@ inverse_permutation:
 
  	jmp .good_result
 .bad_permutation:
-    xor drx, rdx
+    xor rdx, rdx
 .loop_reverse:
     mov eax, [rsi + rdx * 4 + 0]
     test eax, eax
