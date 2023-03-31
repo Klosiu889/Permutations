@@ -7,12 +7,13 @@
 #include <stdint.h>
 
 // Ten plik zawiera przykład użycia funkcji:
-int inverse_permutation(size_t n, int *p);
+bool inverse_permutation(size_t n, int *p);
 
 int tests_failed = 0;
 
-void run_test(int *arr, size_t n, int expected) {
-    int result = inverse_permutation(n, arr);
+void run_test(int *arr, size_t n, int expected, char* name) {
+    printf("Test %s: ", name);
+    bool result = inverse_permutation(n, arr);
     if (result == expected) {
         printf("OK\n");
     } else {
@@ -30,11 +31,12 @@ int main () {
 
     printf("Running tests...\n");
 
-    run_test(arr, 5, 1);
-    run_test(arr2, 4, 0);
-    run_test(arr3, 4, 0);
-    run_test(arr4, 4, 0);
-    run_test(arr5, 6, 1);
+    run_test(arr, -1, false, "Negative size");
+    run_test(arr, 5, true, "Consecutive numbers 0 to 4");
+    run_test(arr2, 4, false, "Negative numbers");
+    run_test(arr3, 4, false, "Duplicate numbers");
+    run_test(arr4, 4, false, "Duplicate numbers 2");
+    run_test(arr5, 6, true, "Non-consecutive numbers 0 to 5");
 
     if (tests_failed > 0) printf("Tests failed: %d\n", tests_failed);
     else printf("All tests passed!\n");
