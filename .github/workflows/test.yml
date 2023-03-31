@@ -17,6 +17,4 @@ jobs:
       - name: compile
         run: ./compile.sh
       - name: test
-        run: ./test -color=false > $GITHUB_OUTPUT
-      - name: log
-        run: echo "$GITHUB_OUTPUT"
+        run: echo "./test -color=false" > $GITHUB_OUTPUT
