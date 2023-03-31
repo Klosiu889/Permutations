@@ -41,8 +41,8 @@ inverse_permutation:
     mov [rsi + rdx * 4 + 0], rax
     mov rax, rcx
     jne .loop_inverse_permutation
-    ;inc rdx
-    ;cmp rdi, rdx
+    inc rdx
+    cmp rdi, rdx
     ;jne .loop_inverse_permutation
 
  	jmp .good_result
