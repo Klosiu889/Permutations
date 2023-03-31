@@ -36,7 +36,7 @@ int main () {
 
     printf("Running tests...\n");
 
-    run_test((uint64_t)INT32_MAX + 2, arr0, true, "Size to big");
+    run_test((uint64_t)INT32_MAX + 2, arr0, false, "Size to big");
     run_test(0, arr0, false, "Empty array");
     run_test(-1, arr0, false, "Negative size");
     run_test(5, arr1, true, "Consecutive numbers 0 to 4");
