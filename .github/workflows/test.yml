@@ -15,10 +15,10 @@ jobs:
       - uses: ilammy/setup-nasm@v1
       - uses: actions/checkout@v3
       - name:
-          run: |
-            mkdir build
-            cd build
-            cmake ..
-            make
+        run: |
+          mkdir build
+          cd build
+          cmake ..
+          make
       - name: test
         run: ./test
