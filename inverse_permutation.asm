@@ -4,7 +4,10 @@ section .text
 
 inverse_permutation:
 	mov rax, rdi
+	ret
 	test rax, rax
+	js .bad_result
+	cmp 0x8000000 , rax
 	js .bad_result
 	mov rdx, 0
 .loop_negative:
