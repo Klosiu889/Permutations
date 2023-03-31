@@ -32,6 +32,7 @@ inverse_permutation:
 	jne .loop_permutation
 	xor rdx, rdx
 .loop_inverse_permutation:
+    mov rax, [rsi + rdx * 4 + 0]
 
 	jmp .good_result
 
