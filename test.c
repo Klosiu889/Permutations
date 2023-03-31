@@ -28,12 +28,16 @@ int main () {
 	int arr3[] = {1, 2, 3, 1};
     int arr4[] = {0, 0, 1, 2};
     int arr5[] = {3, 1, 5, 0, 2, 4};
+    int arr6[] = {INT32_MAX, INT32_MAX + 1, INT32_MAX + 2};
 
     printf("Running tests...\n");
 
+    run_test(arr, INT32_MAX + 2, false, "Size to big");
+    run_test(arr, 0, false, "Empty array");
     run_test(arr, -1, false, "Negative size");
     run_test(arr, 5, true, "Consecutive numbers 0 to 4");
     run_test(arr2, 4, false, "Negative numbers");
+    run_test(arr6, 3, false, "Too big numbers");
     run_test(arr3, 4, false, "Duplicate numbers");
     run_test(arr4, 4, false, "Duplicate numbers 2");
     run_test(arr5, 6, true, "Non-consecutive numbers 0 to 5");
