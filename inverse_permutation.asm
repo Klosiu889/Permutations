@@ -21,10 +21,10 @@ inverse_permutation:
 	not ecx
 	mov eax, [rsi + rcx * 4 + 0]
 	not ecx
-	mov eax, ecx
-    ret
 	jmp .negative
 .positive:
+    mov eax, ecx
+	ret
 	mov eax, [rsi + rcx * 4 + 0]
 .negative:
 	test eax, eax
