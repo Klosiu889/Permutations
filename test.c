@@ -24,7 +24,8 @@ void run_test(size_t n, int* arr, int expected, char* name) {
 }
 
 int main () {
-	int arr[] = {0, 1, 2, 3, 4};
+    int arr0[] = {};
+	int arr1[] = {0, 1, 2, 3, 4};
 	int arr2[] = {1, -2, 3, -4};
 	int arr3[] = {1, 2, 3, 1};
     int arr4[] = {0, 0, 1, 2};
@@ -32,10 +33,10 @@ int main () {
 
     printf("Running tests...\n");
 
-    run_test((uint64_t)INT32_MAX + 2, arr, false, "Size to big");
-    run_test(0, arr, false, "Empty array");
-    run_test(-1, arr, false, "Negative size");
-    run_test(5, arr, true, "Consecutive numbers 0 to 4");
+    run_test((uint64_t)INT32_MAX + 2, arr0, false, "Size to big");
+    run_test(0, arr0, false, "Empty array");
+    run_test(-1, arr0, false, "Negative size");
+    run_test(5, arr1, true, "Consecutive numbers 0 to 4");
     run_test(4, arr2, false, "Negative numbers");
     run_test(4, arr3, false, "Duplicate numbers");
     run_test(4, arr4, false, "Duplicate numbers 2");
