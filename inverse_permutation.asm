@@ -35,7 +35,7 @@ inverse_permutation:
 	xor rdx, rdx
 	mov rax, [rsi + rdx * 4 + 0]
 .loop_inverse_permutation:
-    not eax
+    not rax
     mov [rsi + rdx * 4 + 0], rax
     ;cmp rax, rdx
     ;mov rcx, [rsi + rax * 4 + 0]
