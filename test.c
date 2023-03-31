@@ -12,7 +12,7 @@ bool inverse_permutation(size_t n, int *p);
 int tests_failed = 0;
 
 void run_test(int *arr, size_t n, int expected, char* name) {
-    printf("Test %s:            ", name);
+    printf("Test %s:\n", name);
     bool result = inverse_permutation(n, arr);
     if (result == expected) {
         printf("OK\n");
