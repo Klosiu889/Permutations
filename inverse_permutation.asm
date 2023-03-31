@@ -8,20 +8,20 @@ inverse_permutation:
 	test rax, rax
 	js .bad_result
 	js .bad_result
-	mov rdx, 0
+	xor rdx, rdx
 .loop_negative:
 	cmp word [rsi + rdx * 4 + 0], 0 
 	js .bad_result
 	inc rdx
 	cmp rdi, rdx
 	jne .loop_negative
-	mov rdx, 0
+	xor rdx, rdx
 .loop_permutation:
 	mov ecx, [rsi + rdx * 4 + 0]
 	test ecx, ecx
-	jns .positive
+	jns .not_checked
 	not ecx
-.positive:
+.not_checked:
 	mov eax, [rsi + rcx * 4 + 0]
 	test eax, eax
 	js .bad_result
@@ -30,8 +30,9 @@ inverse_permutation:
 	inc rdx
 	cmp rdi, rdx
 	jne .loop_permutation
-	
-	
+	xor rdx, rdx
+.loop_inverse_permutation:
+
 	jmp .good_result
 
 .good_result:
