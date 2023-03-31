@@ -18,9 +18,9 @@ bool debug = false;
 
 void check_flags(int argc, char **argv) {
     switch (argc) {
-        case 0:
-            break;
         case 1:
+            break;
+        case 2:
             if (strcmp(argv[1], "-debug") == 0) {
                 debug = true;
             } else if (strcmp(argv[1], "-color=false") == 0) {
@@ -31,7 +31,7 @@ void check_flags(int argc, char **argv) {
                 printf("Unknown flag");
                 exit(1);
             }
-        case 2:
+        case 3:
             if (strcmp(argv[1], "-debug") == 0 ||
                 strcmp(argv[2], "-debug") == 0) {
                 debug = true;
