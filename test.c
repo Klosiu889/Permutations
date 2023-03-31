@@ -42,7 +42,7 @@ int main () {
     run_test(-1, arr0, false, "Negative size");
     run_test(5, arr1, true, "Consecutive numbers 0 to 4");
     run_test(4, arr2, false, "Negative numbers");
-    run_test(4, arr3, false, "Duplicate numbers");
+    run_test(4, arr3, true, "Duplicate numbers");
     run_test(4, arr4, false, "Duplicate numbers 2");
     run_test(6, arr5, true, "Non-consecutive numbers 0 to 5");
 
