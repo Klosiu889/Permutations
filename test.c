@@ -30,7 +30,7 @@ int main () {
     int arr4[] = {0, 0, 1, 2};
     int arr5[] = {3, 1, 5, 0, 2, 4};
 
-    int* big_arr = (int*)malloc(sizeof(int) * ((uint64_t)INT32_MAX + 1));
+    int* big_arr = (int*)malloc((uint64_t)sizeof(int) * ((uint64_t)INT32_MAX + 1));
     for (uint64_t i = 0; i < (uint64_t)INT32_MAX + 1; i++) big_arr[i] = i;
 
     printf("Running tests...\n");
