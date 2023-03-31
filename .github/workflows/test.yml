@@ -12,9 +12,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: ilammy/setup-nasm@v1
-    - uses: actions/checkout@v3
-    - name: compile
-      run: ./compile.sh
-    - name: test
-      run: echo "./test -color=false"
+      - uses: ilammy/setup-nasm@v1
+      - uses: actions/checkout@v3
+      - name: compile
+        run: ./compile.sh
+
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: test
+        run: ./test -color=false >> $GITHUB_OUTPUT
