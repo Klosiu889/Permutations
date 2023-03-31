@@ -98,7 +98,10 @@ int main(int argc, char **argv) {
     run_test(4, duplicate_numbers, false, "Duplicate numbers");
     run_test(4, duplicate_numbers2, false, "Duplicate numbers 2");
 
-    if (debug) write_array(5, consecutive_numbers_array);
+    if (debug) {
+        write_array(5, consecutive_numbers_array);
+        write_array(6, correct_permutation);
+    }
 
     if (tests_failed > 0) {
         printf("%sTests failed%s: %d\n", RED, RESET, tests_failed);
