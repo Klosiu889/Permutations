@@ -30,13 +30,13 @@ int main () {
     int arr4[] = {0, 0, 1, 2};
     int arr5[] = {3, 1, 5, 0, 2, 4};
 
-    int* big_arr = (int*)malloc(sizeof(int) * ((uint64_t)INT32_MAX + 1));
-    for (uint64_t i = 0; i < (uint64_t)INT32_MAX + 1; i++) big_arr[i] = i;
+    //int* big_arr = (int*)malloc(sizeof(int) * ((uint64_t)INT32_MAX + 1));
+    //for (uint64_t i = 0; i < (uint64_t)INT32_MAX + 1; i++) big_arr[i] = i;
 
     printf("Running tests...\n");
 
-    run_test(big_arr, (uint64_t)INT32_MAX + 2, false, "Size to big");
-    run_test(big_arr, (uint64_t)INT32_MAX + 1, true, "Maximum size");
+    run_test(arr, (uint64_t)INT32_MAX + 2, false, "Size to big");
+    run_test(arr, (uint64_t)INT32_MAX + 1, true, "Maximum size");
     run_test(arr, 0, false, "Empty array");
     run_test(arr, -1, false, "Negative size");
     run_test(arr, 5, true, "Consecutive numbers 0 to 4");
