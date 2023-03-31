@@ -10,7 +10,9 @@ inverse_permutation:
 	js .bad_result
 	xor rdx, rdx
 .loop_negative:
-	cmp word [rsi + rdx * 4 + 0], 0 
+	cmp word [rsi + rdx * 4 + 0], 0
+	js .bad_result
+	cmp rdi, [rsi + rdx * 4 + 0]
 	js .bad_result
 	inc rdx
 	cmp rdi, rdx
@@ -36,7 +38,7 @@ inverse_permutation:
     not rax
     cmp rax, rdx
     je .next_step
-    mov rcx, [rsi + eax * 4 + 0]
+    mov rcx, [rsi + rax * 4 + 0]
 
 .next_step:
     inc rdx
