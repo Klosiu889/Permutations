@@ -29,6 +29,7 @@ void check_flags(int argc, char **argv) {
                 RESET = "";
             } else {
                 printf("Unknown flag");
+                exit(1);
             }
         case 2:
             if (strcmp(argv[1], "-debug") == 0 ||
@@ -41,10 +42,12 @@ void check_flags(int argc, char **argv) {
                 RESET = "";
             } else {
                 printf("Unknown flag");
+                exit(1);
             }
             break;
         default:
             printf("Too many flags");
+            exit(1);
     }
 }
 
@@ -95,7 +98,7 @@ int main(int argc, char **argv) {
     run_test(4, duplicate_numbers, false, "Duplicate numbers");
     run_test(4, duplicate_numbers2, false, "Duplicate numbers 2");
 
-    write_array(5, consecutive_numbers_array);
+    if (debug) write_array(5, consecutive_numbers_array);
 
     if (tests_failed > 0) {
         printf("%sTests failed%s: %d\n", RED, RESET, tests_failed);
