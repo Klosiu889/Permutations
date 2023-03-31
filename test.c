@@ -53,7 +53,7 @@ int main(int argc, char **argv) {
 
     if (tests_failed > 0) {
         printf("%sTests failed%s: %d\n", RED, RESET, tests_failed);
-        assert(false);
+        exit(1);
     } else {
         printf("%sAll tests passed!%s\n", GREEN, RESET);
     }
