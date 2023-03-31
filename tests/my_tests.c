@@ -18,7 +18,7 @@ char *RESET = "\033[0m";
 void run_test(size_t n, int *arr, bool expected, char *name) {
     bool result = inverse_permutation(n, arr);
     if (result == expected) {
-        printf("%sOK%s", GREEN, RESET);
+        printf("%sOK   %s", GREEN, RESET);
     } else {
         printf("%sERROR%s", RED, RESET);
         tests_failed++;
