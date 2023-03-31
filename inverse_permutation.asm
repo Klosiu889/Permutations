@@ -27,7 +27,7 @@ inverse_permutation:
 	mov eax, [rsi + rcx * 4 + 0]
 	test eax, eax
 	js .bad_result
-	not rax
+	not eax
 	mov [rsi + rcx * 4 + 0], eax
 	inc rdx
 	cmp rdi, rdx
