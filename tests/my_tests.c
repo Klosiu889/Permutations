@@ -50,7 +50,7 @@ int main(int argc, char **argv) {
     run_test(5, consecutive_numbers_array, true, "Consecutive numbers 0 to 4");
     run_test(6, correct_permutation, true, "Correct permutation");
     run_test(4, duplicate_numbers, false, "Duplicate numbers");
-    run_test(4, duplicate_numbers2, true, "Duplicate numbers 2");
+    run_test(4, duplicate_numbers2, false, "Duplicate numbers 2");
     run_test(4, too_big_numbers, false, "Too big numbers");
 
     if (tests_failed > 0) {
