@@ -33,8 +33,17 @@ inverse_permutation:
 	xor rdx, rdx
 .loop_inverse_permutation:
     mov rax, [rsi + rdx * 4 + 0]
+    not rax
+    cmp rax, rdx
+    je .next_step
+    mov rcx, [rsi + eax * 4 + 0]
 
-	jmp .good_result
+.next_step:
+    inc rdx
+    cmp rdi, rdx
+    jne .loop_inverse_permutation
+.loop_exit:
+ 	jmp .good_result
 
 .good_result:
 	mov rax, 1
