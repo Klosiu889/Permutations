@@ -19,6 +19,8 @@ inverse_permutation:
 	test ecx, ecx
 	jns .positive
 	not ecx
+	mov eax, ecx
+	ret
 	mov eax, [rsi + rcx * 4 + 0]
 	not ecx
 	jmp .negative
