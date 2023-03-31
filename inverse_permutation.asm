@@ -26,7 +26,7 @@ inverse_permutation:
 .not_checked:
 	mov eax, [rsi + rcx * 4 + 0]
 	test eax, eax
-	js .bad_result
+	js .bad_permutation
 	not eax
 	mov [rsi + rcx * 4 + 0], eax
 	inc rdx
@@ -53,7 +53,19 @@ inverse_permutation:
     jne .loop_inverse_permutation
 
  	jmp .good_result
-
+.bad_permutation:
+    xor drx, rdx
+.loop_reverse:
+    mov eax, [rsi + rdx * 4 + 0]
+    test eax, eax
+    jns .positive3
+    not eax
+    mov [rsi + rdx * 4 + 0], eax
+.positive3:
+    inc rdx
+    cmp rdi, rdx
+    jne .loop_reverse
+    jmp .bad_result
 .good_result:
 	mov rax, 1
 	ret
