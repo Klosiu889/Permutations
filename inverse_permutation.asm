@@ -37,7 +37,7 @@ inverse_permutation:
 .loop_inverse_permutation:
     not rax
     cmp rax, rdx
-    ;mov rcx, [rsi + rax * 4 + 0]
+    mov rcx, [rsi + rax * 4 + 0]
     ;mov [rsi + rdx * 4 + 0], rax
     ;mov rax, rcx
     ;jne .loop_inverse_permutation
