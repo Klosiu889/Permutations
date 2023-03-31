@@ -57,16 +57,17 @@ void run_test(size_t n, int *arr, bool expected, char *name) {
         tests_failed++;
     }
     printf("    %s\n", name);
-    if (debug && result != expected) {
-        printf("n: %zu, arr: [", n);
-        for (int i = 0; i < n; i++) {
-            printf("%d", arr[i]);
-            if (i != n - 1) {
-                printf(", ");
-            }
+}
+
+void write_array(size_t n, int *arr) {
+    printf("[");
+    for (size_t i = 0; i < n; i++) {
+        printf("%d", arr[i]);
+        if (i != n - 1) {
+            printf(", ");
         }
-        printf("]\n");
     }
+    printf("]\n");
 }
 
 int main(int argc, char **argv) {
@@ -93,6 +94,8 @@ int main(int argc, char **argv) {
     run_test(6, correct_permutation, true, "Correct permutation");
     run_test(4, duplicate_numbers, false, "Duplicate numbers");
     run_test(4, duplicate_numbers2, false, "Duplicate numbers 2");
+
+    write_array(5, consecutive_numbers_array);
 
     if (tests_failed > 0) {
         printf("%sTests failed%s: %d\n", RED, RESET, tests_failed);
