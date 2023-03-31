@@ -84,6 +84,14 @@ int main(int argc, char **argv) {
     int duplicate_numbers[] = {1, 2, 3, 1};
     int duplicate_numbers2[] = {0, 0, 1, 2};
     int correct_permutation[] = {3, 1, 5, 0, 2, 4};
+    int correct_permutation2[] = {3, 1, 5, 0, 2, 4, 6};
+    int correct_permutation3[] = {64, 62, 56, 61, 7, 25, 34, 43, 30, 42, 45, 60,
+                                  16, 46, 29, 8, 11, 18, 32, 57, 12, 44, 52, 21,
+                                  36, 66, 24, 48, 5, 27, 59, 51, 20, 2, 22, 38,
+                                  14, 23, 41, 4, 33, 35, 3, 47, 13, 54, 55, 15,
+                                  39, 58, 50, 1, 17, 40, 53, 9, 28, 49, 63, 10,
+                                  6, 0, 31, 19, 26, 65, 37};
+
 
     printf("Running tests...\n");
 
@@ -97,6 +105,8 @@ int main(int argc, char **argv) {
     run_test(6, correct_permutation, true, "Correct permutation");
     run_test(4, duplicate_numbers, false, "Duplicate numbers");
     run_test(4, duplicate_numbers2, false, "Duplicate numbers 2");
+    run_test(7, correct_permutation2, true, "Correct permutation 2");
+    run_test(67, correct_permutation3, true, "Correct permutation 3");
 
     if (debug) {
         write_array(5, consecutive_numbers_array);
