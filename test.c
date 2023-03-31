@@ -9,6 +9,18 @@
 // Ten plik zawiera przykład użycia funkcji:
 int inverse_permutation(size_t n, int *p);
 
+int tests_failed = 0;
+
+void run_test(int *arr, size_t n, int expected) {
+    int result = inverse_permutation(n, arr);
+    if (result == expected) {
+        printf("OK\n");
+    } else {
+        printf("ERROR: expected %d, got %d\n", expected, result);
+        tests_failed++;
+    }
+}
+
 int main () {
 	int arr[] = {0, 1, 2, 3, 4};
 	int arr2[] = {1, -2, 3, -4};
@@ -18,13 +30,14 @@ int main () {
 
     printf("Running tests...\n");
 
-	assert(inverse_permutation(5, arr) == 1);
-	assert(inverse_permutation(4, arr2) == 0);
-    assert(inverse_permutation(4, arr3) == 0);
-    assert(inverse_permutation(4, arr4) == 0);
-    assert(inverse_permutation(6, arr5) == 1);
+    run_test(arr, 5, 1);
+    run_test(arr2, 4, 0);
+    run_test(arr3, 4, 0);
+    run_test(arr4, 4, 0);
+    run_test(arr5, 6, 1);
 
-    printf("All tests passed!\n");
+    if (tests_failed > 0) printf("Tests failed: %d\n", tests_failed);
+    else printf("All tests passed!\n");
 
 	return 0;
 }
