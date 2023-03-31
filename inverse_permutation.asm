@@ -34,16 +34,16 @@ inverse_permutation:
 	jne .loop_permutation
 	xor rdx, rdx
 .loop_inverse_permutation:
-    mov rax, [rsi + rdx * 4 + 0]
-    not rax
-    cmp rax, rdx
-    je .next_step
-    mov rcx, [rsi + rax * 4 + 0]
+    ;mov rax, [rsi + rdx * 4 + 0]
+    ;not rax
+    ;cmp rax, rdx
+    ;je .next_step
+    ;mov rcx, [rsi + rax * 4 + 0]
 
-.next_step:
-    inc rdx
-    cmp rdi, rdx
-    jne .loop_inverse_permutation
+;.next_step:
+    ;inc rdx
+ ;   cmp rdi, rdx
+;    jne .loop_inverse_permutation
 .loop_exit:
  	jmp .good_result
 
