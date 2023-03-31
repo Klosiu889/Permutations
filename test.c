@@ -11,14 +11,17 @@
 bool inverse_permutation(size_t n, int *p);
 
 int tests_failed = 0;
+char* RED = "\033[0;31m";
+char* GREEN = "\033[0;32m";
+char* RESET = "\033[0m";
 
 void run_test(size_t n, int* arr, int expected, char* name) {
     printf("Test %s:\n", name);
     bool result = inverse_permutation(n, arr);
     if (result == expected) {
-        printf("OK\n");
+        printf("%sOK%s\n", GREEN, RESET);
     } else {
-        printf("ERROR: expected %d, got %d\n", expected, result);
+        printf("%sERROR%s: expected %d, got %d\n", RED, RESET, expected, result);
         tests_failed++;
     }
 }
@@ -42,8 +45,8 @@ int main () {
     run_test(4, arr4, false, "Duplicate numbers 2");
     run_test(6, arr5, true, "Non-consecutive numbers 0 to 5");
 
-    if (tests_failed > 0) printf("Tests failed: %d\n", tests_failed);
-    else printf("All tests passed!\n");
+    if (tests_failed > 0) printf("%sTests failed%s: %d\n", RED, RESET, tests_failed);
+    else printf("%sAll tests passed!%s\n", GREEN, RESET);
 
 	return 0;
 }
