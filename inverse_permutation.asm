@@ -34,9 +34,9 @@ inverse_permutation:
 	jne .loop_permutation
 	xor rdx, rdx
 .loop_inverse_permutation:
-	mov rax, [rsi + rdx * 4 + 0]
-    not rax
-    mov [rsi + rdx * 4 + 0], rax
+	mov eax, [rsi + rdx * 4 + 0]
+    not eax
+    mov [rsi + rdx * 4 + 0], eax
     ;cmp rax, rdx
     ;mov rcx, [rsi + rax * 4 + 0]
     ;mov [rsi + rdx * 4 + 0], rax
