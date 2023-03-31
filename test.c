@@ -16,15 +16,14 @@ char *GREEN = "\033[0;32m";
 char *RESET = "\033[0m";
 
 void run_test(size_t n, int *arr, bool expected, char *name) {
-    printf("Test %s:\n", name);
     bool result = inverse_permutation(n, arr);
     if (result == expected) {
-        printf("%sOK%s\n", GREEN, RESET);
+        printf("%sOK%s", GREEN, RESET);
     } else {
-        printf("%sERROR%s: expected %s, got %s\n", RED, RESET,
-               expected ? "True" : "False", result ? "True" : "False");
+        printf("%sERROR%s", RED, RESET);
         tests_failed++;
     }
+    printf("    %s\n", name);
 }
 
 int main(int argc, char **argv) {
@@ -34,23 +33,25 @@ int main(int argc, char **argv) {
         RESET = "";
     }
 
-    int arr0[] = {};
-    int arr1[] = {0, 1, 2, 3, 4};
-    int arr2[] = {1, -2, 3, -4};
-    int arr3[] = {1, 2, 3, 1};
-    int arr4[] = {0, 0, 1, 2};
-    int arr5[] = {3, 1, 5, 0, 2, 4};
+    int empty_arr[] = {};
+    int consecutive_numbers_array[] = {0, 1, 2, 3, 4};
+    int negative_numbers[] = {1, -2, 3, -4};
+    int too_big_numbers[] = {1, 2, 3, 5};
+    int duplicate_numbers[] = {1, 2, 3, 1};
+    int duplicate_numbers2[] = {0, 0, 1, 2};
+    int correct_permutation[] = {3, 1, 5, 0, 2, 4};
 
     printf("Running tests...\n");
 
-    run_test((uint64_t) INT32_MAX + 2, arr0, false, "Size to big");
-    run_test(0, arr0, false, "Empty array");
-    run_test(-1, arr0, false, "Negative size");
-    run_test(5, arr1, true, "Consecutive numbers 0 to 4");
-    run_test(4, arr2, false, "Negative numbers");
-    run_test(4, arr3, false, "Duplicate numbers");
-    run_test(4, arr4, false, "Duplicate numbers 2");
-    run_test(6, arr5, true, "Non-consecutive numbers 0 to 5");
+    run_test((uint64_t) INT32_MAX + 2, empty_arr, false, "Size to big");
+    run_test(0, empty_arr, false, "Empty array");
+    run_test(-1, empty_arr, false, "Negative size");
+    run_test(4, negative_numbers, false, "Negative numbers");
+    run_test(5, consecutive_numbers_array, true, "Consecutive numbers 0 to 4");
+    run_test(6, correct_permutation, true, "Correct permutation");
+    run_test(4, duplicate_numbers, false, "Duplicate numbers");
+    run_test(4, duplicate_numbers2, false, "Duplicate numbers 2");
+    run_test(4, too_big_numbers, false, "Too big numbers");
 
     if (tests_failed > 0) {
         printf("%sTests failed%s: %d\n", RED, RESET, tests_failed);
