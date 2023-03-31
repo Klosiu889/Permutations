@@ -43,7 +43,7 @@ inverse_permutation:
     jne .loop_inverse_permutation
     inc rdx
     cmp rdi, rdx
-    ;jne .loop_inverse_permutation
+    jne .loop_inverse_permutation
 
  	jmp .good_result
 
