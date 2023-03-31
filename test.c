@@ -32,9 +32,9 @@ int main () {
 
     printf("Running tests...\n");
 
-    run_test((uint64_t)INT32_MAX + 2, NULL, false, "Size to big");
-    run_test(0, NULL, false, "Empty array");
-    run_test(-1, NULL, false, "Negative size");
+    run_test((uint64_t)INT32_MAX + 2, arr, false, "Size to big");
+    run_test(0, arr, false, "Empty array");
+    run_test(-1, arr, false, "Negative size");
     run_test(5, arr, true, "Consecutive numbers 0 to 4");
     run_test(4, arr2, false, "Negative numbers");
     run_test(4, arr3, false, "Duplicate numbers");
