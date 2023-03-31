@@ -12,7 +12,7 @@ bool inverse_permutation(size_t n, int *p);
 
 int tests_failed = 0;
 
-void run_test(int *arr, size_t n, int expected, char* name) {
+void run_test(size_t n, int* arr, int expected, char* name) {
     printf("Test %s:\n", name);
     bool result = inverse_permutation(n, arr);
     if (result == expected) {
@@ -32,14 +32,14 @@ int main () {
 
     printf("Running tests...\n");
 
-    run_test(NULL, (uint64_t)INT32_MAX + 2, false, "Size to big");
-    run_test(NULL, 0, false, "Empty array");
-    run_test(NULL, -1, false, "Negative size");
-    run_test(arr, 5, true, "Consecutive numbers 0 to 4");
-    run_test(arr2, 4, false, "Negative numbers");
-    run_test(arr3, 4, false, "Duplicate numbers");
-    run_test(arr4, 4, false, "Duplicate numbers 2");
-    run_test(arr5, 6, true, "Non-consecutive numbers 0 to 5");
+    run_test((uint64_t)INT32_MAX + 2, NULL, false, "Size to big");
+    run_test(0, NULL, false, "Empty array");
+    run_test(-1, NULL, false, "Negative size");
+    run_test(5, arr, true, "Consecutive numbers 0 to 4");
+    run_test(4, arr2, false, "Negative numbers");
+    run_test(4, arr3, false, "Duplicate numbers");
+    run_test(4, arr4, false, "Duplicate numbers 2");
+    run_test(6, arr5, true, "Non-consecutive numbers 0 to 5");
 
     if (tests_failed > 0) printf("Tests failed: %d\n", tests_failed);
     else printf("All tests passed!\n");
