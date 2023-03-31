@@ -28,7 +28,7 @@ void run_test(size_t n, int* arr, int expected, char* name) {
 }
 
 int main(int argc, char *argv) {
-    if (argc > 1 && argc[1] == "-color=false") {
+    if (argc > 1 && argv[1] == "-color=false") {
         RED = "";
         GREEN = "";
         RESET = "";
