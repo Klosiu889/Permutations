@@ -57,8 +57,8 @@ void run_test(size_t n, int *arr, bool expected, char *name) {
         tests_failed++;
     }
     printf("    %s\n", name);
-    if (debug && result == expected) {
-        printf("    n: %zu, arr: [", n);
+    if (debug && result != expected) {
+        printf("n: %zu, arr: [", n);
         for (int i = 0; i < n; i++) {
             printf("%d", arr[i]);
             if (i != n - 1) {
