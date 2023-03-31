@@ -33,7 +33,6 @@ inverse_permutation:
 	xor rdx, rdx
 .loop_inverse_permutation:
 
-
 	jmp .good_result
 
 .good_result:
