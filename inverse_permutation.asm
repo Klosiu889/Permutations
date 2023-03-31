@@ -43,6 +43,7 @@ inverse_permutation:
     ;mov rax, rcx
     ;jne .loop_inverse_permutation
 .step:
+    mov [rsi + rdx * 4 + 0], eax
     inc rdx
     cmp rdi, rdx
     jne .loop_inverse_permutation
