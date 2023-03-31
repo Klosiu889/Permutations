@@ -41,7 +41,7 @@ inverse_permutation:
     je .step
     mov ecx, [rsi + rax * 4 + 0]
     mov [rsi + rdx * 4 + 0], eax
-    ;mov rax, rcx
+    mov rax, rcx
     ;jne .loop_inverse_permutation_2
 .step:
     mov [rsi + rdx * 4 + 0], eax
