@@ -38,9 +38,9 @@ inverse_permutation:
     not eax
     cmp eax, edx
     mov ecx, [rsi + rax * 4 + 0]
-    mov [rsi + rdx * 4 + 0], eax
-    mov rax, rcx
-    jne .loop_inverse_permutation
+    ;mov [rsi + rdx * 4 + 0], eax
+    ;mov rax, rcx
+    ;jne .loop_inverse_permutation
     inc rdx
     cmp rdi, rdx
     jne .loop_inverse_permutation
