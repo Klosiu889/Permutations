@@ -20,6 +20,7 @@ inverse_permutation:
 	jns .positive
 	not ecx
 .positive:
+	mov eax, [rsi + rcx * 4 + 0]
 	test eax, eax
 	js .bad_result
 	not rax
