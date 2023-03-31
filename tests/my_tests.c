@@ -36,7 +36,8 @@ int main(int argc, char **argv) {
     int empty_arr[] = {};
     int consecutive_numbers_array[] = {0, 1, 2, 3, 4};
     int negative_numbers[] = {1, -2, 3, -4};
-    int too_big_numbers[] = {1, 2, 3, 5};
+    int too_big_numbers[] = {1, 2, 3, 4};
+    int too_big_numbers2[] = {1, 2, 3, 5};
     int duplicate_numbers[] = {1, 2, 3, 1};
     int duplicate_numbers2[] = {0, 0, 1, 2};
     int correct_permutation[] = {3, 1, 5, 0, 2, 4};
@@ -48,6 +49,7 @@ int main(int argc, char **argv) {
     run_test(-1, empty_arr, false, "Negative size");
     run_test(4, negative_numbers, false, "Negative numbers");
     run_test(4, too_big_numbers, false, "Too big numbers");
+    run_test(4, too_big_numbers2, false, "Too big numbers 2");
     run_test(5, consecutive_numbers_array, true, "Consecutive numbers 0 to 4");
     run_test(6, correct_permutation, true, "Correct permutation");
     run_test(4, duplicate_numbers, false, "Duplicate numbers");
