@@ -20,7 +20,7 @@ void run_test(size_t n, int *arr, bool expected, char *name) {
     if (result == expected) {
         printf("%sOK   %s", GREEN, RESET);
     } else {
-        printf("%ERROR%s", RED, RESET);
+        printf("%sERROR%s", RED, RESET);
         tests_failed++;
     }
     printf("    %s\n", name);
