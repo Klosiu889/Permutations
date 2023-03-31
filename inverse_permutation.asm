@@ -19,14 +19,7 @@ inverse_permutation:
 	test ecx, ecx
 	jns .positive
 	not ecx
-	mov eax, [rsi + rcx * 4 + 0]
-	not ecx
-	jmp .negative
 .positive:
-    mov eax, ecx
-	ret
-	mov eax, [rsi + rcx * 4 + 0]
-.negative:
 	test eax, eax
 	js .bad_result
 	not rax
