@@ -111,6 +111,8 @@ int main(int argc, char **argv) {
     if (debug) {
         write_array(5, consecutive_numbers_array);
         write_array(6, correct_permutation);
+        write_array(7, correct_permutation2);
+        write_array(67, correct_permutation3);
     }
 
     if (tests_failed > 0) {
