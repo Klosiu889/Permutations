@@ -24,6 +24,7 @@ void run_test(size_t n, int* arr, int expected, char* name) {
         printf("%sERROR%s: expected %d, got %d\n", RED, RESET, expected, result);
         tests_failed++;
     }
+    assert(result == expected);
 }
 
 int main () {
