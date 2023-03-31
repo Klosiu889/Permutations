@@ -9,4 +9,4 @@ if (CMAKE_ASM_NASM_COMPILER_LOADED)
     set(Test inverse_permutation.asm test.c)
 endif (CMAKE_ASM_NASM_COMPILER_LOADED)
 
-add_executable(Test ${Test})
+add_executable(test ${Test})
