@@ -16,10 +16,15 @@ int main () {
     int arr4[] = {0, 0, 1, 2};
     int arr5[] = {3, 1, 5, 0, 2, 4};
 
+    printf("Running tests...\n");
+
 	assert(inverse_permutation(5, arr) == 1);
 	assert(inverse_permutation(4, arr2) == 0);
     assert(inverse_permutation(4, arr3) == 0);
     assert(inverse_permutation(4, arr4) == 0);
     assert(inverse_permutation(6, arr5) == 1);
+
+    printf("All tests passed!\n");
+
 	return 0;
 }
