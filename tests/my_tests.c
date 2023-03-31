@@ -47,11 +47,11 @@ int main(int argc, char **argv) {
     run_test(0, empty_arr, false, "Empty array");
     run_test(-1, empty_arr, false, "Negative size");
     run_test(4, negative_numbers, false, "Negative numbers");
+    run_test(4, too_big_numbers, false, "Too big numbers");
     run_test(5, consecutive_numbers_array, true, "Consecutive numbers 0 to 4");
     run_test(6, correct_permutation, true, "Correct permutation");
     run_test(4, duplicate_numbers, false, "Duplicate numbers");
     run_test(4, duplicate_numbers2, false, "Duplicate numbers 2");
-    run_test(4, too_big_numbers, false, "Too big numbers");
 
     if (tests_failed > 0) {
         printf("%sTests failed%s: %d\n", RED, RESET, tests_failed);
