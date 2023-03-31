@@ -15,6 +15,6 @@ jobs:
     - uses: ilammy/setup-nasm@v1
     - uses: actions/checkout@v3
     - name: compile
-      run: ./compile.sh
+      run: ./compile.sh > log.txt
     - name: test
       run: ./test
