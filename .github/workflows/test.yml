@@ -7,14 +7,18 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  Test:
 
     runs-on: ubuntu-latest
 
     steps:
       - uses: ilammy/setup-nasm@v1
       - uses: actions/checkout@v3
-      - name: compile
-        run: ./compile.sh
+      - name:
+          run: |
+            mkdir build
+            cd build
+            cmake ..
+            make
       - name: test
         run: ./test
