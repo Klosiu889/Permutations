@@ -27,11 +27,17 @@ void run_test(size_t n, int* arr, int expected, char* name) {
     assert(result == expected);
 }
 
-int main () {
+int main(int argc, char *argv) {
+    if (argc > 1 && argc[1] == "-color=false") {
+        RED = "";
+        GREEN = "";
+        RESET = "";
+    }
+
     int arr0[] = {};
-	int arr1[] = {0, 1, 2, 3, 4};
-	int arr2[] = {1, -2, 3, -4};
-	int arr3[] = {1, 2, 3, 1};
+    int arr1[] = {0, 1, 2, 3, 4};
+    int arr2[] = {1, -2, 3, -4};
+    int arr3[] = {1, 2, 3, 1};
     int arr4[] = {0, 0, 1, 2};
     int arr5[] = {3, 1, 5, 0, 2, 4};
 
