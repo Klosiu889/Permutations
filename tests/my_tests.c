@@ -6,7 +6,6 @@
 #include <string.h>
 #include <stdint.h>
 #include <stdlib.h>
-#include <wchar.h>
 
 // Ten plik zawiera przykład użycia funkcji:
 bool inverse_permutation(size_t n, int *p);
@@ -19,9 +18,9 @@ char *RESET = "\033[0m";
 void run_test(size_t n, int *arr, bool expected, char *name) {
     bool result = inverse_permutation(n, arr);
     if (result == expected) {
-        wprintf(L"%s%lc%s", GREEN, L'\u2714', RESET);
+        printf("%sOK   %s", GREEN, RESET);
     } else {
-        wprintf(L"%%lc%s", RED, L'\u2717', RESET);
+        printf("%ERROR%s", RED, RESET);
         tests_failed++;
     }
     printf("    %s\n", name);
