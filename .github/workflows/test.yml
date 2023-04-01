@@ -21,7 +21,7 @@ jobs:
           cmake ..
           make my_tests
           make mimuw_tests
-      - name: test
-        run: |
-          ./build/my_tests
-          ./build/mimuw_tests
+      - name: my_tests
+        run: ./build/my_tests
+      - name: mimuw_tests
+        run: ./build/mimuw_tests
