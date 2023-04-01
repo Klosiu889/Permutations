@@ -10,7 +10,7 @@ inverse_permutation:
 	js .bad_result
 	xor rdx, rdx
 .loop_negative:
-	cmp word [rsi + rdx * 4 + 0], 0
+	test [rsi + rdx * 4 + 0], [rsi + rdx * 4 + 0]
 	js .bad_result
 	cmp edi, [rsi + rdx * 4 + 0]
 	jle .bad_result
