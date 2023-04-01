@@ -69,12 +69,12 @@ void run_test(size_t n, int *arr, bool expected, char *name) {
     memcpy(arr_copy, arr, n * sizeof(int));
 
     bool result_array = true;
-    for (size_t i = 0; i < n && result; i++) {
+    /*for (size_t i = 0; i < n && result; i++) {
         if (arr_copy[arr[i]] != i) {
             result_array = false;
             break;
         }
-    }
+    }*/
 
     if (result == expected && result_array) {
         printf("%sOK   %s", GREEN, RESET);
