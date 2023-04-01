@@ -10,9 +10,10 @@ inverse_permutation:
 	js .bad_result
 	xor rdx, rdx
 .loop_negative:
-	test [rsi + rdx * 4 + 0], [rsi + rdx * 4 + 0]
+    mov eax, [rsi + rdx * 4 + 0]
+	test eax, eax
 	js .bad_result
-	cmp edi, [rsi + rdx * 4 + 0]
+	cmp edi, eax
 	jle .bad_result
 	inc rdx
 	cmp rdi, rdx
