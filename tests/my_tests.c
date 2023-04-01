@@ -133,6 +133,12 @@ int main(int argc, char **argv) {
     run_test(7, correct_permutation2, true, "Correct permutation 2");
     run_test(67, correct_permutation3, true, "Correct permutation 3");
 
+    if (debug) {
+        write_array(6, correct_permutation);
+        write_array(7, correct_permutation2);
+        write_array(67, correct_permutation3);
+    }
+
     if (tests_failed > 0) {
         printf("%sTests failed%s: %d\n", RED, RESET, tests_failed);
         exit(1);
