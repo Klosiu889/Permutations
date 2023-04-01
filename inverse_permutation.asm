@@ -3,10 +3,9 @@ global inverse_permutation
 section .text
 
 inverse_permutation:
-	mov rax, rdi
-	dec rax
+	mov rax, rdi    ; zapisanie n do sprawdzenia
+	dec rax ; zmniejszenie n
 	test rax, rax
-	js .bad_result
 	js .bad_result
 	xor rdx, rdx
 .loop_negative:

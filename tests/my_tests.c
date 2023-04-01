@@ -118,7 +118,7 @@ int main(int argc, char **argv) {
                                   6, 0, 31, 19, 26, 65, 37};
 
 
-    printf("Running tests...\n");
+    printf("=> Running my tests...\n");
 
     run_test((uint64_t) INT32_MAX + 2, empty_arr, false, "Size to big");
     run_test(0, empty_arr, false, "Empty array");
