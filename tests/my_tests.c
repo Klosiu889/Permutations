@@ -103,7 +103,7 @@ int main(int argc, char **argv) {
 
     int empty_arr[] = {};
     int consecutive_numbers_array[] = {0, 1, 2, 3, 4};
-    int negative_numbers[] = {1, -2, 3, -4};
+    int negative_numbers[] = {1, -2, 3, -315152210};
     int too_big_numbers[] = {1, 2, 3, 4};
     int too_big_numbers2[] = {1, 2, 3, 5};
     int duplicate_numbers[] = {1, 2, 3, 1};
