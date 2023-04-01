@@ -41,13 +41,13 @@ inverse_permutation:
 .positive2:
     cmp eax, edx
     je .step
-    mov ecx, rdx
+    mov ecx, edx
 .permutation_cycle:
     mov eax, r8d
     mov eax, [rsi + rax * 4 + 0]
     mov [rsi + rcx * 4 + 0], eax
     mov ecx, r8d
-    cmp eax, rdx
+    cmp eax, edx
     jne .permutation_cycle
 .step:
     mov [rsi + rdx * 4 + 0], eax
