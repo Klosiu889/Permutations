@@ -41,6 +41,8 @@ inverse_permutation:
 .positive2:
     cmp eax, edx
     je .step
+    cmp [rsi + eax * 4 + 0], edx
+    je .step
     mov ecx, edx
     mov r9d, eax
 .permutation_cycle:
