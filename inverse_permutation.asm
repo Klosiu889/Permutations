@@ -50,7 +50,7 @@ inverse_permutation:
     mov ecx, r8d
     cmp r9d, ecx
     jne .permutation_cycle
-    mov r9d, ecx
+    mov [rsi + rcx * 4 + 0], r9d
 .step:
     mov [rsi + rdx * 4 + 0], eax
     inc rdx
