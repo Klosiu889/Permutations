@@ -43,26 +43,13 @@ inverse_permutation:
 	xor rdx, rdx
 .loop_inverse_permutation:
 	mov eax, [rsi + rdx * 4 + 0]
-    cmp eax, edx
+    test eax, [rsi + rax * 4 + 0]
     je .step
-    cmp [rsi + rax * 4 + 0], edx
-    je .step
-    mov ecx, edx
-    mov r9d, eax
-.permutation_cycle:
-    mov r8d, eax
-    mov eax, [rsi + rax * 4 + 0]
-    mov [rsi + rcx * 4 + 0], eax
-    mov ecx, r8d
-    cmp r9d, ecx
-    jne .permutation_cycle
-    mov [rsi + rcx * 4 + 0], r9d
 .step:
-    mov [rsi + rdx * 4 + 0], eax
     inc rdx
     cmp rdi, rdx
     jne .loop_inverse_permutation
- 	jmp .good_result
+    jmp .good_result
 .bad_permutation:
     xor rdx, rdx
 .loop_reverse:
