@@ -64,9 +64,13 @@ void write_array(size_t n, int *arr) {
 
 void run_test(size_t n, int *arr, bool expected, char *name) {
     bool result = inverse_permutation(n, arr);
+
+    int *arr_copy = (int *) malloc(n * sizeof(int));
+    memcpy(arr_copy, arr, n * sizeof(int));
+
     bool result_array = true;
     for (size_t i = 0; i < n && result; i++) {
-        if (arr[i] != i) {
+        if (arr_copy[arr[i]] != i) {
             result_array = false;
             break;
         }
