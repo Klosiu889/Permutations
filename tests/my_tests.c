@@ -51,17 +51,6 @@ void check_flags(int argc, char **argv) {
     }
 }
 
-void run_test(size_t n, int *arr, bool expected, char *name) {
-    bool result = inverse_permutation(n, arr);
-    if (result == expected) {
-        printf("%sOK   %s", GREEN, RESET);
-    } else {
-        printf("%sERROR%s", RED, RESET);
-        tests_failed++;
-    }
-    printf("    %s\n", name);
-}
-
 void write_array(size_t n, int *arr) {
     printf("[");
     for (size_t i = 0; i < n; i++) {
@@ -71,6 +60,37 @@ void write_array(size_t n, int *arr) {
         }
     }
     printf("]\n");
+}
+
+void run_test(size_t n, int *arr, bool expected, char *name) {
+    bool result = inverse_permutation(n, arr);
+    bool result_array = true;
+    for (size_t i = 0; i < n && result; i++) {
+        if (arr[i] != i) {
+            result_array = false;
+            break;
+        }
+    }
+
+    if (result == expected && result_array == expected) {
+        printf("%sOK   %s", GREEN, RESET);
+    } else {
+        printf("%sERROR%s", RED, RESET);
+        if (debug && result) {
+            void write_array(size_t n, int *arr) {
+                printf("[");
+                for (size_t i = 0; i < n; i++) {
+                    printf("%d", arr[i]);
+                    if (i != n - 1) {
+                        printf(", ");
+                    }
+                }
+                printf("]\n");
+            }
+        }
+        tests_failed++;
+    }
+    printf("    %s\n", name);
 }
 
 int main(int argc, char **argv) {
@@ -107,13 +127,6 @@ int main(int argc, char **argv) {
     run_test(4, duplicate_numbers2, false, "Duplicate numbers 2");
     run_test(7, correct_permutation2, true, "Correct permutation 2");
     run_test(67, correct_permutation3, true, "Correct permutation 3");
-
-    if (debug) {
-        write_array(5, consecutive_numbers_array);
-        write_array(6, correct_permutation);
-        write_array(7, correct_permutation2);
-        write_array(67, correct_permutation3);
-    }
 
     if (tests_failed > 0) {
         printf("%sTests failed%s: %d\n", RED, RESET, tests_failed);
