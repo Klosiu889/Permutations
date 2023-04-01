@@ -19,6 +19,9 @@ jobs:
           mkdir build
           cd build
           cmake ..
-          make
+          make my_tests
+          make mimuw_tests
       - name: test
-        run: ./build/test
+        run: |
+          ./build/my_tests
+          ./build/mimuw_tests

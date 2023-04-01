@@ -60,10 +60,10 @@ inverse_permutation:
 .loop_reverse:
     mov eax, [rsi + rdx * 4 + 0]
     test eax, eax
-    jns .positive3
+    jns .positive
     not eax
     mov [rsi + rdx * 4 + 0], eax
-.positive3:
+.positive:
     inc rdx
     cmp rdi, rdx
     jne .loop_reverse
