@@ -72,7 +72,7 @@ void run_test(size_t n, int *arr, bool expected, char *name) {
         }
     }
 
-    if (result == expected && result_array == expected) {
+    if (result == expected && result_array) {
         printf("%sOK   %s", GREEN, RESET);
     } else {
         printf("%sERROR%s", RED, RESET);
