@@ -35,17 +35,20 @@ inverse_permutation:
 	xor rdx, rdx
 .loop_inverse_permutation:
 	mov eax, [rsi + rdx * 4 + 0]
-.loop_inverse_permutation_2:
     test eax, eax
     jns .positive2
     not eax
 .positive2:
     cmp eax, edx
     je .step
-    mov ecx, [rsi + rax * 4 + 0]
-    mov [rsi + rax * 4 + 0], eax
-    mov eax, ecx
-    jne .loop_inverse_permutation_2
+    mov ecx, rdx
+.permutation_cycle:
+    mov eax, r8d
+    mov eax, [rsi + eax * 4 + 0]
+    mov [rsi + rcx * 4 + 0], eax
+    mov ecx, r8d
+    cmp eax, rdx
+    jne .permutation_cycle
 .step:
     mov [rsi + rdx * 4 + 0], eax
     inc rdx
