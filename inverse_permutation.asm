@@ -33,18 +33,11 @@ inverse_permutation:
 	cmp rdi, rdx
 	jne .loop_permutation
 	xor rdx, rdx
-.make_positive:
-    mov eax, [rsi + rdx * 4 + 0]
-    not eax
-    mov [rsi + rdx * 4 + 0], eax
-    inc rdx
-    cmp rdi, rdx
-    jne .make_positive
-	xor rdx, rdx
+.
 .loop_inverse_permutation:
-	mov eax, [rsi + rdx * 4 + 0]
-    test eax, [rsi + rax * 4 + 0]
-    je .step
+
+.reverse_cycle:
+
 .step:
     inc rdx
     cmp rdi, rdx
