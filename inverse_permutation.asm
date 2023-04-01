@@ -67,9 +67,9 @@ inverse_permutation:
     jne .loop_reverse
     jmp .bad_result
 .good_result:
-	mov rax, 1
+	mov eax, 1
 	ret
 
 .bad_result:
-	mov rax, 0
+	mov eax, 0
 	ret
