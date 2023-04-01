@@ -48,8 +48,8 @@ inverse_permutation:
     mov eax, [rsi + rax * 4 + 0]
     mov [rsi + rcx * 4 + 0], eax
     mov ecx, r8d
-    cmp r9d, eax
-    ;jne .permutation_cycle
+    cmp r9d, ecx
+    jne .permutation_cycle
     mov r9d, ecx
 .step:
     mov [rsi + rdx * 4 + 0], eax
