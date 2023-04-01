@@ -44,7 +44,7 @@ inverse_permutation:
     mov ecx, edx
     mov r9d, eax
 .permutation_cycle:
-    mov eax, r8d
+    mov r8d, eax
     mov eax, [rsi + rax * 4 + 0]
     mov [rsi + rcx * 4 + 0], eax
     mov ecx, r8d
@@ -56,7 +56,6 @@ inverse_permutation:
     inc rdx
     cmp rdi, rdx
     jne .loop_inverse_permutation
-
  	jmp .good_result
 .bad_permutation:
     xor rdx, rdx
@@ -74,7 +73,6 @@ inverse_permutation:
 .good_result:
 	mov eax, 1
 	ret
-
 .bad_result:
 	mov eax, 0
 	ret
