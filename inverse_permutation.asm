@@ -34,7 +34,9 @@ inverse_permutation:
 	jne .loop_permutation
 	xor rdx, rdx
 .make_positive:
-    not [rsi + rdx * 4 + 0]
+    mov eax, [rsi + rdx * 4 + 0]
+    not eax
+    mov [rsi + rdx * 4 + 0], eax
     inc rdx
     cmp rdi, rdx
     jne .make_positive
