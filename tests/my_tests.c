@@ -134,6 +134,7 @@ int main(int argc, char **argv) {
     run_test(67, correct_permutation3, true, "Correct permutation 3");
 
     if (debug) {
+        write_array(4, negative_numbers);
         write_array(6, correct_permutation);
         write_array(7, correct_permutation2);
         write_array(67, correct_permutation3);
