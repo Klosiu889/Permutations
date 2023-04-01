@@ -46,6 +46,7 @@ inverse_permutation:
 .permutation_cycle:
     mov r8d, eax
     mov eax, [rsi + rax * 4 + 0]
+    not eax
     mov [rsi + rcx * 4 + 0], eax
     mov ecx, r8d
     cmp r9d, ecx
